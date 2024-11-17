@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var ball: Node2D
-var SCREEN_SIZE
+var SCREEN_SIZE = Vector2(800, 600)
 
 @export var ai_speed = 50
 @export var max_ai_speed = 100
