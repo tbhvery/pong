@@ -14,7 +14,7 @@ func _physics_process(delta):
 	var target_y = lerp(position.y, ball_y, 0.001 * ai_speed)
 	
 	position.y = target_y
-	position.y = clamp(position.y, -SCREEN_SIZE.y / 2 + 50, SCREEN_SIZE.y / 2 - 50)
+	position.y = clamp(position.y, -SCREEN_SIZE.y / 2 + 55, SCREEN_SIZE.y / 2 - 55)
 
 func _on_ball_user_score():
 	if ai_speed < max_ai_speed:
