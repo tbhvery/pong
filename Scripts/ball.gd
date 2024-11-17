@@ -6,10 +6,9 @@ signal cpu_score
 
 @export var SPEED = 200.0
 @export var RAND_DEVIATION = 10
-var SCREEN_SIZE
+var SCREEN_SIZE = Vector2(800, 600)
 
 func _ready():
-	SCREEN_SIZE = get_viewport_rect().size
 	velocity.x = -SPEED
 
 func _physics_process(delta):
