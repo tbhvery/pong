@@ -66,14 +66,18 @@ volume_db = -20.0
 autoplay = true
 
 [node name="W" type="Sprite2D" parent="."]
+visible = false
 z_index = 1
 texture = ExtResource("8_tjk6u")
 script = ExtResource("9_qt7xv")
+metadata/_edit_lock_ = true
 
 [node name="L" type="Sprite2D" parent="."]
+visible = false
 z_index = 1
 texture = ExtResource("11_sls1v")
 script = ExtResource("12_diwoe")
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Computer Goal" to="Ball" method="_on_computer_goal_body_entered"]
 [connection signal="body_entered" from="User Goal" to="Ball" method="_on_user_goal_body_entered"]
