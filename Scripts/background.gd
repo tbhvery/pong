@@ -16,7 +16,6 @@ var colors = [
 
 func _process(delta):
 	color = color.lerp(current_color, delta * transition_speed)
-	pass
 
 func _on_ball_ball_collision():
 	var flash_color = colors[randi() % colors.size()]

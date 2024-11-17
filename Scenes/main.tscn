@@ -23,6 +23,14 @@ offset_top = -300.0
 offset_right = -400.0
 offset_bottom = -300.0
 
+[node name="Color" type="ColorRect" parent="User Interface"]
+z_as_relative = false
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 0
+color = Color(0.133333, 0.133333, 0.133333, 1)
+script = ExtResource("5_hvui3")
+metadata/_edit_lock_ = true
+
 [node name="Computer Goal" parent="." instance=ExtResource("2_ib0s6")]
 z_index = 1
 position = Vector2(-350, 1)
@@ -37,7 +45,6 @@ position = Vector2(-300, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1
-position = Vector2(-2, 2)
 
 [node name="Ball" parent="." groups=["ball"] instance=ExtResource("3_0iwr3")]
 z_index = 1
@@ -46,34 +53,18 @@ z_index = 1
 z_index = 1
 position = Vector2(300, 0)
 
-[node name="Color" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -800.0
-offset_top = -600.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.299547, 0.299547, 0.299547, 1)
-script = ExtResource("5_hvui3")
-metadata/_edit_lock_ = true
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_33t8c")
 volume_db = -20.0
 autoplay = true
 
 [node name="W" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 texture = ExtResource("8_tjk6u")
 script = ExtResource("9_qt7xv")
 metadata/_edit_lock_ = true
 
 [node name="L" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 texture = ExtResource("11_sls1v")
 script = ExtResource("12_diwoe")
@@ -81,7 +72,7 @@ metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Computer Goal" to="Ball" method="_on_computer_goal_body_entered"]
 [connection signal="body_entered" from="User Goal" to="Ball" method="_on_user_goal_body_entered"]
-[connection signal="ball_collision" from="Ball" to="Color" method="_on_ball_ball_collision"]
+[connection signal="ball_collision" from="Ball" to="User Interface/Color" method="_on_ball_ball_collision"]
 [connection signal="cpu_score" from="Ball" to="." method="_on_ball_cpu_score"]
 [connection signal="cpu_score" from="Ball" to="L" method="_on_ball_cpu_score"]
 [connection signal="user_score" from="Ball" to="." method="_on_ball_user_score"]
