@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ciihvbd47m13w"
+path="res://.godot/imported/Taco Bell Bong SFX.ogg-66c4844f429ef82f20ff9b822c56d012.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/Taco Bell Bong SFX.ogg"
+dest_files=["res://.godot/imported/Taco Bell Bong SFX.ogg-66c4844f429ef82f20ff9b822c56d012.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

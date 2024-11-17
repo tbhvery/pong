@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfpb4akjb0j1a"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_8cpqa"]
+[ext_resource type="PackedScene" uid="uid://cl7se88phsq00" path="res://Scenes/player.tscn" id="2_ajsrk"]
+[ext_resource type="PackedScene" uid="uid://ba5loovmp7oix" path="res://Scenes/goal.tscn" id="2_ib0s6"]
+[ext_resource type="PackedScene" uid="uid://dq2y8qn3sa5ek" path="res://Scenes/ball.tscn" id="3_0iwr3"]
+[ext_resource type="PackedScene" uid="uid://cyl10cwi3gc10" path="res://Scenes/computer.tscn" id="4_ar8sc"]
+[ext_resource type="Script" path="res://Scripts/background.gd" id="5_hvui3"]
+[ext_resource type="AudioStream" uid="uid://mhbih4qwvh8y" path="res://Assets/twinkle twinkle if it was good.wav" id="6_33t8c"]
+[ext_resource type="AudioStream" uid="uid://b7cfk71p5ryne" path="res://Assets/flip.mp3" id="7_csuhy"]
+[ext_resource type="AudioStream" uid="uid://cbvvx0u26ogaf" path="res://Assets/µ.mp3" id="9_0ye7f"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_tcl71"]
+stream_count = 3
+stream_0 = ExtResource("6_33t8c")
+stream_1 = ExtResource("7_csuhy")
+stream_2 = ExtResource("9_0ye7f")
+
+[node name="Main" type="Node"]
+script = ExtResource("1_8cpqa")
+
+[node name="Computer Goal" parent="." instance=ExtResource("2_ib0s6")]
+z_index = 1
+position = Vector2(-350, 1)
+
+[node name="User Goal" parent="." instance=ExtResource("2_ib0s6")]
+z_index = 1
+position = Vector2(350, 0)
+
+[node name="Player" parent="." groups=["paddle"] instance=ExtResource("2_ajsrk")]
+z_index = 1
+position = Vector2(-300, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
+position = Vector2(-2, 2)
+
+[node name="Ball" parent="." node_paths=PackedStringArray("USER_GOAL") groups=["ball"] instance=ExtResource("3_0iwr3")]
+z_index = 1
+USER_GOAL = NodePath("../User Goal")
+
+[node name="Computer" parent="." groups=["paddle"] instance=ExtResource("4_ar8sc")]
+z_index = 1
+position = Vector2(300, 0)
+
+[node name="Color" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -800.0
+offset_top = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.299547, 0.299547, 0.299547, 1)
+script = ExtResource("5_hvui3")
+metadata/_edit_lock_ = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPlaylist_tcl71")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="area_entered" from="Computer Goal" to="Ball" method="_on_computer_goal_area_entered"]
+[connection signal="area_entered" from="User Goal" to="Ball" method="_on_user_goal_area_entered"]

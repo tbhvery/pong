@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfpb4akjb0j1a"]
+
+[ext_resource type="PackedScene" uid="uid://cl7se88phsq00" path="res://player.tscn" id="1_35fc0"]
+[ext_resource type="Script" path="res://main.gd" id="1_lkv0k"]
+[ext_resource type="PackedScene" uid="uid://dq2y8qn3sa5ek" path="res://ball.tscn" id="3_vd4xp"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lkv0k")
+
+[node name="Player" parent="." groups=["paddle"] instance=ExtResource("1_35fc0")]
+position = Vector2(-550, 3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2, 2)
+
+[node name="Ball" parent="." groups=["ball"] instance=ExtResource("3_vd4xp")]

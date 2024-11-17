@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu3xvlrx16qv4"]
+
+[sub_resource type="SystemFont" id="SystemFont_jvog8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eenx4"]
+font = SubResource("SystemFont_jvog8")
+font_size = 60
+
+[node name="User Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="User Score" type="Label" parent="."]
+layout_mode = 0
+offset_right = 83.0
+offset_bottom = 55.0
+text = "0"
+label_settings = SubResource("LabelSettings_eenx4")
+horizontal_alignment = 1
+
+[node name="CPU Score" type="Label" parent="."]
+offset_left = 717.0
+offset_right = 800.0
+offset_bottom = 83.0
+text = "0"
+label_settings = SubResource("LabelSettings_eenx4")
+horizontal_alignment = 1
